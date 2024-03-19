@@ -1,51 +1,19 @@
-import Foundation
 import SwiftUI
-import UIKit
 
-protocol TextInputConvertible {
-    init?(fromString string: String)
-    var toString: String { get }
-}
-
-extension String: TextInputConvertible {
-    
-    init?(fromString string: String) {
-        self = string
-    }
-    
-    var toString: String { self }
-}
-
-extension Int: TextInputConvertible {
-    
-    init?(fromString string: String) {
-        guard let value = Int(string) else { return nil }
-        self = value
-    }
-    
-    var toString: String { "\(self)" }
-}
-
-extension Double: TextInputConvertible {
-    
-    init?(fromString string: String) {
-        guard let value = Double(string) else { return nil }
-        self = value
-    }
-    
-    var toString: String { "\(self)" }
-}
-
-struct GenericTextField<Value: TextInputConvertible>: View {
-    var value: Binding<Value>
-    
-    @State private var stringValue: String = ""
+struct GenericTextField<Value>: View {
+    @Binding var value: Value
     
     var body: some View {
-        TextField("", text: $stringValue)
-            .textFieldStyle(.roundedBorder)
-            .onAppear {
-                stringValue = value.wrappedValue.toString
+        VStack {
+            switch $value {
+            case is Binding<Int>, is Binding<Double>:
+                TextField("", value: $value, formatter: NumberFormatter())
+                    .keyboardType(.numberPad)
+                    .textFieldStyle(.roundedBorder)
+            default:
+                TextField("", text: $value as! Binding<String>)
+                    .textFieldStyle(.roundedBorder)
             }
+        }
     }
 }

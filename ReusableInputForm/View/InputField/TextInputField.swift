@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct TextInputField<Value: TextInputConvertible>: InputField {
+struct TextInputField<Value>: InputField {
     var isRequired: Bool
     var title: String
     var value: Binding<Value>
