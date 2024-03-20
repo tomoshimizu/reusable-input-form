@@ -1,10 +1,19 @@
 import SwiftUI
 
+protocol ValidationErrorHandling {
+    var hasError: Bool { get }
+    var errorMessage: String { get }
+}
+
+struct FieldValidationError: ValidationErrorHandling {
+    var hasError: Bool
+    var errorMessage: String
+}
+
 struct InputFieldView<Content>: View where Content: View {
     let isRequired: Bool
     let title: String
-    let hasError: Bool
-    let errorMessage: String
+    let error: ValidationErrorHandling
     let content: () -> Content
     
     var body: some View {
@@ -29,8 +38,8 @@ struct InputFieldView<Content>: View where Content: View {
 
                 content()
 
-                if hasError {
-                    Text(errorMessage)
+                if error.hasError {
+                    Text(error.errorMessage)
                         .foregroundColor(.red)
                 }
             }
