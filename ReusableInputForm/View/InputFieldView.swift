@@ -1,22 +1,18 @@
 import SwiftUI
 
-protocol InputField {
-    var isRequired: Bool { get }
-    var title: String { get }
-    var hasError: Bool { get }
-    var errorMessage: String { get }
-    func inputFieldContent() -> AnyView
-}
-
-struct InputFieldView<Input: InputField>: View {
-    var inputField: Input
+struct InputFieldView<Content>: View where Content: View {
+    let isRequired: Bool
+    let title: String
+    let hasError: Bool
+    let errorMessage: String
+    let content: () -> Content
     
     var body: some View {
 
         VStack(alignment: .leading, spacing: 16) {
 
             HStack(spacing: 8) {
-                if inputField.isRequired {
+                if isRequired {
                     Text("必須")
                         .foregroundColor(.white)
                         .background(Color.red)
@@ -26,15 +22,15 @@ struct InputFieldView<Input: InputField>: View {
                         .background(Color.gray)
                 }
                 
-                Text(inputField.title)
+                Text(title)
             }
 
             VStack(alignment: .leading, spacing: 8) {
 
-                inputField.inputFieldContent()
+                content()
 
-                if inputField.hasError {
-                    Text(inputField.errorMessage)
+                if hasError {
+                    Text(errorMessage)
                         .foregroundColor(.red)
                 }
             }

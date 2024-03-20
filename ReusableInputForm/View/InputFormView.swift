@@ -8,36 +8,38 @@ struct InputFormView: View {
     @State var prefecture: Prefecture = .unselected
     
     var body: some View {
-        
         ScrollView {
-            
             VStack(alignment: .leading, spacing: 32) {
-                InputFieldView(
-                    inputField: TextInputField<String>(isRequired: true,
-                                                       title: "名前",
-                                                       value: $name,
-                                                       hasError: false,
-                                                       errorMessage: "入力してください"))
-                InputFieldView(
-                    inputField: TextInputField<Int>(isRequired: false,
-                                                    title: "年齢",
-                                                    value: $age,
-                                                    hasError: true,
-                                                    errorMessage: "入力してください"))
-                InputFieldView(
-                    inputField: DropdownInputField<Gender>(isRequired: true,
-                                                           title: "性別",
-                                                           options: Gender.allCases,
-                                                           selection: $gender,
-                                                           hasError: false,
-                                                           errorMessage: "入力してください"))
-                InputFieldView(
-                    inputField: DropdownInputField<Prefecture>(isRequired: false,
-                                                               title: "都道府県",
-                                                               options: Prefecture.allCases,
-                                                               selection: $prefecture,
-                                                               hasError: true,
-                                                               errorMessage: "入力してください"))
+                InputFieldView(isRequired: true,
+                               title: "名前",
+                               hasError: true,
+                               errorMessage: "入力してください",
+                               content: {
+                    GenericTextField(value: $name)
+                })
+                InputFieldView(isRequired: true,
+                               title: "年齢",
+                               hasError: true,
+                               errorMessage: "入力してください",
+                               content: {
+                    GenericTextField(value: $age)
+                })
+                InputFieldView(isRequired: true,
+                               title: "性別",
+                               hasError: false,
+                               errorMessage: "入力してください",
+                               content: {
+                    GenericDropdown(options: Gender.allCases,
+                                    selection: $gender)
+                })
+                InputFieldView(isRequired: true,
+                               title: "都道府県",
+                               hasError: false,
+                               errorMessage: "入力してください",
+                               content: {
+                    GenericDropdown(options: Prefecture.allCases,
+                                    selection: $prefecture)
+                })
             }
             .padding(24)
             .background(Color("base"))

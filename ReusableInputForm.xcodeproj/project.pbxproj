@@ -10,11 +10,9 @@
 		D329BC162B92A97B00510EA5 /* ReusableInputFormApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D329BC152B92A97B00510EA5 /* ReusableInputFormApp.swift */; };
 		D329BC1A2B92A97C00510EA5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D329BC192B92A97C00510EA5 /* Assets.xcassets */; };
 		D329BC1D2B92A97C00510EA5 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D329BC1C2B92A97C00510EA5 /* Preview Assets.xcassets */; };
-		D33C50362BA035F4005A4BAE /* DropdownInputField.swift in Sources */ = {isa = PBXBuildFile; fileRef = D33C50352BA035F4005A4BAE /* DropdownInputField.swift */; };
-		D33C50382BA03616005A4BAE /* TextInputField.swift in Sources */ = {isa = PBXBuildFile; fileRef = D33C50372BA03616005A4BAE /* TextInputField.swift */; };
 		D33C503D2BA037C2005A4BAE /* GenericTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = D33C503C2BA037C2005A4BAE /* GenericTextField.swift */; };
 		D33C503F2BA037F2005A4BAE /* GenericDropdown.swift in Sources */ = {isa = PBXBuildFile; fileRef = D33C503E2BA037F2005A4BAE /* GenericDropdown.swift */; };
-		D33C50562BA30A6B005A4BAE /* InputField.swift in Sources */ = {isa = PBXBuildFile; fileRef = D33C50552BA30A6B005A4BAE /* InputField.swift */; };
+		D33C50562BA30A6B005A4BAE /* InputFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D33C50552BA30A6B005A4BAE /* InputFieldView.swift */; };
 		D33C50582BA30A97005A4BAE /* InputFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D33C50572BA30A97005A4BAE /* InputFormView.swift */; };
 		D33C505B2BA31023005A4BAE /* InputFieldItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = D33C505A2BA31023005A4BAE /* InputFieldItem.swift */; };
 /* End PBXBuildFile section */
@@ -24,11 +22,9 @@
 		D329BC152B92A97B00510EA5 /* ReusableInputFormApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableInputFormApp.swift; sourceTree = "<group>"; };
 		D329BC192B92A97C00510EA5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D329BC1C2B92A97C00510EA5 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		D33C50352BA035F4005A4BAE /* DropdownInputField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropdownInputField.swift; sourceTree = "<group>"; };
-		D33C50372BA03616005A4BAE /* TextInputField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextInputField.swift; sourceTree = "<group>"; };
 		D33C503C2BA037C2005A4BAE /* GenericTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericTextField.swift; sourceTree = "<group>"; };
 		D33C503E2BA037F2005A4BAE /* GenericDropdown.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericDropdown.swift; sourceTree = "<group>"; };
-		D33C50552BA30A6B005A4BAE /* InputField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputField.swift; sourceTree = "<group>"; };
+		D33C50552BA30A6B005A4BAE /* InputFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputFieldView.swift; sourceTree = "<group>"; };
 		D33C50572BA30A97005A4BAE /* InputFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputFormView.swift; sourceTree = "<group>"; };
 		D33C505A2BA31023005A4BAE /* InputFieldItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputFieldItem.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -80,16 +76,6 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
-		D33C50322BA035B1005A4BAE /* InputField */ = {
-			isa = PBXGroup;
-			children = (
-				D33C50552BA30A6B005A4BAE /* InputField.swift */,
-				D33C50372BA03616005A4BAE /* TextInputField.swift */,
-				D33C50352BA035F4005A4BAE /* DropdownInputField.swift */,
-			);
-			path = InputField;
-			sourceTree = "<group>";
-		};
 		D33C503B2BA037B8005A4BAE /* Component */ = {
 			isa = PBXGroup;
 			children = (
@@ -111,7 +97,7 @@
 			isa = PBXGroup;
 			children = (
 				D33C50572BA30A97005A4BAE /* InputFormView.swift */,
-				D33C50322BA035B1005A4BAE /* InputField */,
+				D33C50552BA30A6B005A4BAE /* InputFieldView.swift */,
 				D33C503B2BA037B8005A4BAE /* Component */,
 			);
 			path = View;
@@ -187,12 +173,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D33C50562BA30A6B005A4BAE /* InputField.swift in Sources */,
+				D33C50562BA30A6B005A4BAE /* InputFieldView.swift in Sources */,
 				D33C505B2BA31023005A4BAE /* InputFieldItem.swift in Sources */,
-				D33C50362BA035F4005A4BAE /* DropdownInputField.swift in Sources */,
 				D33C50582BA30A97005A4BAE /* InputFormView.swift in Sources */,
 				D329BC162B92A97B00510EA5 /* ReusableInputFormApp.swift in Sources */,
-				D33C50382BA03616005A4BAE /* TextInputField.swift in Sources */,
 				D33C503F2BA037F2005A4BAE /* GenericDropdown.swift in Sources */,
 				D33C503D2BA037C2005A4BAE /* GenericTextField.swift in Sources */,
 			);
